@@ -1,0 +1,127 @@
+.table{
+    width: 40%;
+    margin: auto;  
+    margin-top: 50px;
+    border-color: black;
+    border: 10px;
+}
+
+#btn-mensagem{
+    position: fixed;
+    margin-top: 40px;
+    right: 85px;
+    border-radius: 10px;
+    top: 40px;
+}
+
+.div-btn {
+    width: 100%;
+    display: flex;
+    justify-content: end !important;
+}
+
+.btn-cadastro{
+    margin-top: 30px !important;
+    margin-right: -130px;
+    margin-bottom: -50px;
+}
+
+.btn-relator {
+    margin-top: 100px !important;
+    padding-right: 50px;
+    margin-bottom: -50px;
+}
+
+.modal-header{
+    background-color: #008000;
+}
+
+.modal-body{
+    background-color:gainsboro;
+}
+.navbar{
+    background-color:#008000;
+}
+
+.offcanvas-header{
+    background-color: #008000;
+    
+}
+.offcanvas-body{
+    background-color: gainsboro;
+   justify-content: space-between;
+}
+.offcanvas a:hover{
+   color:lightgreen;
+}
+
+body{
+    background-color: gainsboro;
+}
+
+.nav-item{
+    list-style: none !important;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+
+
+.editar-btn, .excluir-btn {
+    display: inline-block;
+    margin-right: 5px; /* Adiciona um espaçamento à direita entre os botões */
+}
+
+
+.offcanvas{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+.offcanvas-start {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+    transition: all 0.2s ease;
+  }
+  .offcanvas-start.show {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+  }
+
+footer{
+    text-align: center;
+    background-color:#008000;
+    color:#fff;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p{
+    margin-bottom: 0;
+}
+
+.bg {
+    
+    /* Altura total */
+    height: 100%; 
+    /* Centralizar e cobrir */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.a{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+.navbar-toggler-icon {
+    text-decoration: #fff;
+}
