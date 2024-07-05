@@ -11,8 +11,10 @@ class Fornecedor extends Model
 
     protected $table = 'fornecedor';
 
+    public $primaryKey = 'fornecedor_id';
+
     protected $fillable = [
-        'id',
+        'fornecedor_id',
         'nomeEmpresa',
         'cnpj',
         'nomeContato',

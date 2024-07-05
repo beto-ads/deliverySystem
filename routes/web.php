@@ -1,19 +1,36 @@
 <?php
-
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\EntregadorController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EntregaController;
 use App\Http\Controllers\PedidoController;
-use App\Http\Controllers\PdfController;
+use App\Http\Controllers\PdfProdutoController;
+use App\Http\Controllers\PdfPedidoController;
+use App\Http\Controllers\PdfFornecedorController;
+use App\Http\Controllers\PdfEntregadorController;
+use App\Http\Controllers\PdfEntregaController;
+use App\Http\Controllers\PdfClienteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/produto/geraPdf', [PdfController::class, 'geraPdf']);
+Route::get('/produto/geraPdf', [PdfProdutoController::class, 'geraPdf']);
+Route::get('/pedido/geraPdf', [PdfPedidoController::class, 'geraPdf']);
+Route::get('/fornecedor/geraPdf', [PdfFornecedorController::class, 'geraPdf']);
+Route::get('/entregador/geraPdf', [PdfEntregadorController::class, 'geraPdf']);
+Route::get('/entrega/geraPdf', [PdfEntregaController::class, 'geraPdf']);
+Route::get('/cliente/geraPdf', [PdfClienteController::class, 'geraPdf']);
+
+Route::get('/usuario', [UsuarioController::class, 'usuario']);
+Route::get('/usuario/create', [UsuarioController::class, 'create']);
+Route::post('/usuario/store', [UsuarioController::class, 'store']);
+Route::get('/usuario/delete/{id}', [UsuarioController::class, 'destroy']);
+Route::get('/usuario/edit/{id}', [UsuarioController::class, 'edit']);
+Route::put('/usuario/update/{id}', [UsuarioController::class, 'update']);
 
 
 Route::get('/produto', [ProdutoController::class, 'product']);
@@ -27,17 +44,17 @@ Route::put('/produto/update/{id}', [ProdutoController::class, 'update']);
 Route::get('/fornecedor', [FornecedorController::class, 'fornecedor']);
 Route::get('/fornecedor/create', [FornecedorController::class, 'create']);
 Route::post('/fornecedor/store', [FornecedorController::class, 'store']);
-Route::get('/fornecedor/delete/{id}', [FornecedorController::class, 'destroy']);
-Route::get('/fornecedor/edit/{id}', [FornecedorController::class, 'edit']);
-Route::put('/fornecedor/update/{id}', [FornecedorController::class, 'update']);
+Route::get('/fornecedor/delete/{fornecedor_id}', [FornecedorController::class, 'destroy']);
+Route::get('/fornecedor/edit/{fornecedor_id}', [FornecedorController::class, 'edit']);
+Route::put('/fornecedor/update/{fornecedor_id}', [FornecedorController::class, 'update']);
 
 
 Route::get('/entregador', [EntregadorController::class, 'entregador']);
 Route::get('/entregador/create', [EntregadorController::class, 'create']);
 Route::post('/entregador/store', [EntregadorController::class, 'store']);
-Route::get('/entregador/delete/{id}', [EntregadorController::class, 'destroy']);
-Route::get('/entregador/edit/{id}', [EntregadorController::class, 'edit']);
-Route::put('/entregador/update/{id}', [EntregadorController::class, 'update']);
+Route::get('/entregador/delete/{identregador}', [EntregadorController::class, 'destroy']);
+Route::get('/entregador/edit/{identregador}', [EntregadorController::class, 'edit']);
+Route::put('/entregador/update/{identregador}', [EntregadorController::class, 'update']);
 
 Route::get('/cliente', [ClienteController::class, 'cliente']);
 Route::get('/cliente/create', [ClienteController::class, 'create']);

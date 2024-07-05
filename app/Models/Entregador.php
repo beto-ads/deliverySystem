@@ -10,9 +10,10 @@ class Entregador extends Model
     use HasFactory;
 
     protected $table = 'entregador';
+    public $primaryKey = 'identregador';
 
     protected $fillable = [
-        'id',
+        'identregador',
         'nome',
         'cpf',
         'dataNascimento',

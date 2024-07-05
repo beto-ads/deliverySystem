@@ -5,14 +5,7 @@
 @section('content')
 
 
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+
 
 <div class="div-btn">
   <div class="btn-cadastro">
@@ -21,9 +14,10 @@
     </button>
   </div>
   <div class="btn-relator">
-    <button type="submit" class="btn btn-relatorio btn-secondary" >Gerar Relatório</button>
+    <a href="/pedido/geraPdf" class="btn btn-secondy">Gerar Relatório</a>
   </div>
 </div>
+<br>
 <div class="table-responsive">
   <table class="table table-hover caption-top">
       <caption>Pedidos Cadastrados</caption>
@@ -36,7 +30,7 @@
         <th scope="col">Quantidade</th>
         <th scope="col">V.unitario</th>
         <th scope="col">V. Total</th>
-        <th scope="col">AÇÃO</th>
+        <th scope="col">Opção</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -47,10 +41,10 @@
           <td>{{$pedido->produto_nome}}</td>
           <td>{{$pedido->usuario_nome}}</td>
           <td>{{$pedido->quantidade}}</td>
-          <td>{{$pedido->vUnitario}}</td>
-          <td>{{$pedido->vTotal}}</td>
+          <td>R$ {{$pedido->vUnitario}}</td>
+          <td>R$ {{$pedido->vTotal}}</td>
           <td>
-            <a href="/pedido/edit/{{$pedido->id}}" class="btn btn-info editar-btn">Editar</a>
+            <a href="/pedido/edit/{{$pedido->id}}" class="btn btn-info editar-btn m-1">Editar</a>
             <form action="/pedido/delete/{{$pedido->id}}" method="get">
                 @csrf
                 @method('GET')
@@ -68,7 +62,7 @@
 
 @else
 
-<div class="modal fade" id="modalPedido" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade modal-custom" id="modalPedido" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -87,6 +81,9 @@
                                 <option value="{{ $cliente->id }}">{{ $cliente->nome }}</option>
                             @endforeach
                         </select>
+                        <div class="invalid-tooltip">
+                          Por favor, Selecione um CLiente.
+                        </div>
                     </div>
                     <div class="col-md-7">
                         <label for="produto" class="form-label">Produto</label>
@@ -96,6 +93,9 @@
                                 <option value="{{ $produto->id }}">{{ $produto->nomeProduto }}</option>
                             @endforeach
                         </select>
+                        <div class="invalid-tooltip">
+                          Por favor, Selecione um Produto.
+                        </div>
                     </div>
 
             <div class="col-md-7">
@@ -110,6 +110,9 @@
                                 <option value="{{ $usuario->id }}">{{ $usuario->nome }}</option>
                             @endforeach
                         </select>
+                        <div class="invalid-tooltip">
+                          Por favor, Selecione um Vendedor.
+                        </div>
                     </div>
             <div class="col-md-7">
               <label for="vUnitario" class="form-label">V.unitario</label>

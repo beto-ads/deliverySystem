@@ -4,7 +4,10 @@
 
 @section('content')
 
-<form class="row g-3" action="/entregador/update/{{$entregador->id}}" method="post">
+<h1>Edição de Entregadores</h1>
+<br>
+
+<form class="row g-3" action="/entregador/update/{{$entregador->identregador}}" method="post">
         @csrf
         @method('PUT')
           <div class="col-md-7">
@@ -55,7 +58,7 @@
             <label for="estado" class="form-label">Estado</label>
             <select id="estado" class="form-select" name="estado" value="{{$entregador->estado}}">
               <option selected>Selecione...</option>
-              <option>...</option>
+              <option>Paraná</option>
             </select>
           </div>
           <div class="col-md-7">

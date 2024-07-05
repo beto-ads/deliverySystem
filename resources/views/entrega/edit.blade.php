@@ -5,7 +5,8 @@
 @section('content')
 
 <div class="container">
-    <h1>Editar Entrega</h1>
+    <h1>Edição de Entregas</h1>
+    <br>
 
     @if ($errors->any())
         <div class="alert alert-danger">

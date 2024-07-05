@@ -12,14 +12,14 @@
     </button>
   </div>
   <div class="btn-relator">
-    <button type="submit" class="btn btn-relatorio btn-secondary" >Gerar Relatório</button>
+    <a href="/fornecedor/geraPdf" class="btn btn-secondy">Gerar Relatório</a>
   </div>
 </div>
-
+<br>
 <div class="table-responsive">
   <table class=" table table-hover caption-top">
       <caption>Lista De fornecedores Cadastrados</caption>
-    <thead class="table-info">
+    <thead class="">
       <tr>
         <th scope="col">Nome da empresa</th>
         <th scope="col">CNPJ</th>
@@ -29,8 +29,8 @@
         <th scope="col">Telefone fixo</th>
         <th scope="col">Telefone celular</th>
         <th scope="col">Email</th>
-        <th scope="col">Descrição do produto</th>
-        <th scope="col">AÇÃO</thscope>
+        <th scope="col">Descrição do produto fornecido</th>
+        <th scope="col">Opção</thscope>
       </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -46,8 +46,9 @@
           <td>{{$fornecedor->email}}</td>
           <td>{{$fornecedor->descricaoProduto}}</td>
           <td>
-            <a href="/fornecedor/edit/{{$fornecedor->id}}" class="btn btn-info editar-btn">Editar</a>
-            <form action="/fornecedor/delete/{{$fornecedor->id}}" method="get">
+            <a href="/fornecedor/edit/{{$fornecedor->fornecedor_id}}" class="btn btn-info editar-btn m-1">Editar</a>
+            
+            <form action="/fornecedor/delete/{{$fornecedor->fornecedor_id}}" method="get">
                 @csrf
                 @method('GET')
                 <button type="submit" class="btn btn-danger excluir-btn">Excluir</button>
@@ -66,11 +67,11 @@
 
 @else
 <!-- modal de cadastro de fornecedor -->
-<div class="modal fade" id="modalFornecedor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade modal-custom" id="modalFornecedor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastro de Fornecedor</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -112,7 +113,7 @@
             <input type="text" class="form-control" id="email" name="email">
           </div>
           <div class="col-md-8">
-            <label for="descricaoProduto" class="form-label">Descrição do produto</label>
+            <label for="descricaoProduto" class="form-label">Descrição do produto fornecido</label>
             <input type="text" class="form-control" id="descricaoProduto" name="descricaoProduto">
           </div>
           

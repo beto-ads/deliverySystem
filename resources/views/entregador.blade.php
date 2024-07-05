@@ -12,10 +12,10 @@
     </button>
   </div>
   <div class="btn-relator">
-    <button type="submit" class="btn btn-relatorio btn-secondary" >Gerar Relatório</button>
+    <a href="/entregador/geraPdf" class="btn btn-secondy">Gerar Relatório</a>
   </div>
 </div>
-
+<br>
 <div class="table-responsive">
   <table class="table table-hover caption-top">
       <caption>Entregadores Cadastrados</caption>
@@ -34,7 +34,7 @@
         <th scope="col">Numero</th>
         <th scope="col">Bairro</th>
         <th scope="col">Informações do Veiculo</th>
-        <th scope="col">AÇÃO</th>
+        <th scope="col">Opção</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -54,8 +54,8 @@
           <td>{{$entregador->bairro}}</td>
           <td>{{$entregador->infoVeiculo}}</td>
           <td>
-            <a href="/entregador/edit/{{$entregador->id}}" class="btn btn-info editar-btn">Editar</a>
-            <form action="/entregador/delete/{{$entregador->id}}" method="get">
+            <a href="/entregador/edit/{{$entregador->identregador}}" class="btn btn-info editar-btn m-1">Editar</a>
+            <form action="/entregador/delete/{{$entregador->identregador}}" method="get">
                 @csrf
                 @method('GET')
                 <button type="submit" class="btn btn-danger excluir-btn">Excluir</button>
@@ -74,7 +74,7 @@
 
 @else
 <!-- Modal -->
-<div class="modal fade" id="modalEntregador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade modal-custom" id="modalEntregador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">

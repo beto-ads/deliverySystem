@@ -64,21 +64,21 @@ class EntregadorController extends Controller
         }
     }
 
-    public function destroy($id){
-        Entregador::findOrFail($id)->delete();
+    public function destroy($identregador){
+        Entregador::findOrFail($identregador)->delete();
 
         return redirect('/entregador')->with('msg', 'Cadastro excluido com sucesso!');
     }
 
-    public function edit($id){
-        $entregador = Entregador::find($id);
+    public function edit($identregador){
+        $entregador = Entregador::find($identregador);
 
         return view('entregador.edit', ['entregador' =>$entregador]);                                                                        
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $identregador) {
         // Atualiza o entregador com base nos dados do formulário
-        $entregador = Entregador::findOrFail($id);
+        $entregador = Entregador::find($identregador);
         $entregador->update($request->all());
     
         // Define uma mensagem de sessão para informar ao usuário que a edição foi concluída com sucesso

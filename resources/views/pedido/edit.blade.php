@@ -4,7 +4,8 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1>Editar Pedido</h1>
+    <h1>Edição de Pedidos</h1>
+    <br>
 
     <form class="row g-3" action="/pedido/update/{{$pedido->id}}" method="post">
         @csrf

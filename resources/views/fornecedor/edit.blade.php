@@ -4,7 +4,10 @@
 
 @section('content')
 
-<form class="row g-3" action="/fornecedor/update/{{$fornecedor->id}}" method="post">
+<h1>Edição de Fornecedores</h1>
+<br>
+
+<form class="row g-3" action="/fornecedor/update/{{$fornecedor->fornecedor_id}}" method="post">
         @csrf
         @method('PUT')
           <div class="col-md-7">

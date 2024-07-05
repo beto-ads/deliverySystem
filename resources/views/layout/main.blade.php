@@ -44,7 +44,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/vendedor">
+      <a class="nav-link" href="/usuario">
         <i class="fas fa-solid fa-user"></i>  Usuario
       </a>
     </li> 

@@ -11,9 +11,11 @@
     </button>
   </div>
   <div class="btn-relator">
-    <button type="submit" class="btn btn-relatorio btn-secondary" >Gerar Relatório</button>
+    <a href="/cliente/geraPdf" class="btn btn-secondy">Gerar Relatório</a>
   </div>
 </div>
+
+<br>
 
 <div class="table-responsive">
   <table class="table table-hover caption-top">
@@ -32,7 +34,7 @@
         <th scope="col">Endereço</th>
         <th scope="col">Numero</th>
         <th scope="col">Bairro</th>
-        <th scope="col">AÇÃO</th>
+        <th scope="col">Opção</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -51,7 +53,7 @@
           <td>{{$cliente->numero}}</td>
           <td>{{$cliente->bairro}}</td>
           <td>
-            <a href="/cliente/edit/{{$cliente->id}}" class="btn btn-primary editar-btn">Editar</a>
+            <a href="/cliente/edit/{{$cliente->id}}" class="btn btn-primary editar-btn m-1">Editar</a>
             <form action="/cliente/delete/{{$cliente->id}}" method="get">
                 @csrf
                 @method('GET')
@@ -73,7 +75,7 @@
 
 @else
 <!-- Modal -->
-<div class="modal fade" id="modalCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade modal-custom" id="modalCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">

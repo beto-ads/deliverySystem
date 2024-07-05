@@ -3,14 +3,7 @@
 @section('title', 'S.S delivery')
 
 @section('content')
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+
 
 <div class="div-btn">
   <div class="btn-cadastro">
@@ -19,9 +12,12 @@
     </button>
   </div>
   <div class="btn-relator">
-    <button type="submit" class="btn btn-relatorio btn-secondary">Gerar Relatório</button>
+  <a href="/entrega/geraPdf" class="btn btn-secondy">Gerar Relatório</a>
   </div>
 </div>
+
+<br>
+
 <div class="table-responsive">
   <table class="table table-hover caption-top">
       <caption>Entregas Cadastradas</caption>
@@ -33,7 +29,7 @@
         <th scope="col">Entregador</th>
         <th scope="col">Endereço de Entrega</th>
         <th scope="col">Status</th>
-        <th scope="col">AÇÃO</th>
+        <th scope="col">Opção</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -46,7 +42,7 @@
           <td>{{$entrega->enderecoEntrega}}</td>
           <td>{{$entrega->status}}</td>
           <td>
-            <a href="/entrega/edit/{{$entrega->id}}" class="btn btn-info editar-btn">Editar</a>
+            <a href="/entrega/edit/{{$entrega->id}}" class="btn btn-info editar-btn m-1">Editar</a>
             <form action="/entrega/delete/{{$entrega->id}}" method="get">
                 @csrf
                 @method('GET')
@@ -62,11 +58,11 @@
 @if(isset($edit) && $edit === true)
 
 @else
-<div class="modal fade" id="modalentrega" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade modal-custom" id="modalentrega" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastro de Pedido</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastro de Entrega</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

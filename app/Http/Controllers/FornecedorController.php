@@ -21,7 +21,7 @@ class FornecedorController extends Controller
    public function store(Request $request){
 
         try {
-            $request ->validate([
+            $request ->valfornecedor_idate([
                 
                 'nomeEmpresa' => 'required|string|max:150',
                 'cnpj' => 'required|string|max:14',
@@ -37,7 +37,7 @@ class FornecedorController extends Controller
             
 
             $fornecedorStore = new Fornecedor();
-            
+            $fornecedorStore ->fornecedor_id = $request->fornecedor_id;
             $fornecedorStore ->nomeEmpresa = $request->nomeEmpresa;
             $fornecedorStore ->cnpj = $request->cnpj;
             $fornecedorStore ->nomeContato = $request ->nomeContato;
@@ -56,22 +56,22 @@ class FornecedorController extends Controller
         }
    }
 
-   public function destroy($id){
-        Fornecedor::findOrFail($id)->delete();
+   public function destroy($fornecedor_id){
+        Fornecedor::findOrFail($fornecedor_id)->delete();
 
         return redirect('/fornecedor')->with('msg', 'Cadastro excluido com sucesso');
    }
 
-   public function edit($id){
-        $fornecedor = Fornecedor::find($id);
+   public function edit($fornecedor_id){
+        $fornecedor = Fornecedor::find($fornecedor_id);
 
         return view('fornecedor.edit', ['fornecedor'=>$fornecedor]);
    }
 
-   public function update(Request $request, $id){
+   public function update(Request $request, $fornecedor_id){
 
       // Atualiza o produto com base nos dados do formulário
-        $fornecedor = Fornecedor::find($id);
+        $fornecedor = Fornecedor::find($fornecedor_id);
         $fornecedor->update($request->all());
 
         // Define uma mensagem de sessão para informar ao usuário que a edição foi concluída com sucesso

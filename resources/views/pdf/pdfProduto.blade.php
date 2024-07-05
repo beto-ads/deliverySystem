@@ -1,34 +1,54 @@
-@extends('layout.main')
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+  }
 
-@section('title', 'S.S delivery')
+  .page {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-@section('content')
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
 
-<table class=" table table-hover caption-top">
-        <caption>Lista De Produtos Cadastrados</caption>
-      <thead>
-        <tr>
-          <th scope="col">Nome do produto</th>
-          <th scope="col">Categoria</th>
-          <th scope="col">Quantidade</th>
-          <th scope="col">Valor do produto</th>
-          <th scope="col">Descrição do Produto</th>
-          <th scope="col">Opção</th>
-        
-        </tr>
-      </thead>
-      <tbody class="table-group-divider">
-        @foreach($produtos as $produto)
-        
-          <tr>
-            <td >{{$produto->nomeProduto}}</td>
-            <td>{{$produto->categoria}}</td>
-            <td>{{$produto->quantidade}}</td>
-            <td>{{$produto->valorProduto}}</td>
-            <td>{{$produto->descricaoProduto}}</td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table>  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
 
-@endsection
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+</style>
+<div class="page">
+  <h1>RELATÓRIO DE PRODUTO</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome do Produto</th>
+        <th>Categoria</th>
+        <th>Quantidade</th>
+        <th>Valor do Produto</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($produtos as $produto)
+      <tr>
+        <td>{{ $produto->nomeProduto }}</td>
+        <td>{{ $produto->categoria }}</td>
+        <td>{{ $produto->quantidade }}</td>
+        <td>{{ $produto->valorProduto }}</td>
+        <td>{{ $produto->descricaoProduto }}</td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
+
